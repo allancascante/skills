@@ -100,13 +100,13 @@ If another skill is needed but unavailable, load its entry point explicitly or p
 | Setup | [establish-architecture](./skills/establish-architecture/SKILL.md) | Import existing architecture faithfully or capture missing decisions as reviewable ADRs. |
 | Setup | [establish-coding-standards](./skills/establish-coding-standards/SKILL.md) | Confirm coding rigor, analysis/security/architecture guardrails, and repository/review practices. |
 | Setup | [establish-testing-standards](./skills/establish-testing-standards/SKILL.md) | Approve coverage floors, test layers, requirement-based scenarios, and critical-path gates. |
-| 1 | [define-project-contract](./skills/define-project-contract/SKILL.md) | Turn an idea or draft into reviewed scope, behavioral requirements, and an acceptance contract. |
-| 2 | [analyze-architecture](./skills/analyze-architecture/SKILL.md) | Evaluate requirements against the existing system: feasibility, design alternatives, gaps, invariants, compatibility, risks, and dependencies. |
-| 3 | [plan-delivery](./skills/plan-delivery/SKILL.md) | Build a dependency-ordered tracker with measurable completion criteria, blockers, and next-ready work. |
-| 4 | [design-test-catalog](./skills/design-test-catalog/SKILL.md) | Connect requirements to scenarios, tests, fixtures, environments, and reproducible verification commands. |
-| 5 | [implement-tested-slice](./skills/implement-tested-slice/SKILL.md) | Implement eligible work in small red-green-refactor slices with real test and coverage evidence. |
-| 6 | [integrate-and-report](./skills/integrate-and-report/SKILL.md) | Verify integration under project policy and report honest status, post-integration results, and next eligible work. |
-| 7 | [qualify-release](./skills/qualify-release/SKILL.md) | Execute an acceptance runbook against installed deliverables and claimed environments, recording release and compatibility evidence. |
+| Requirement Gathering | [define-project-contract](./skills/define-project-contract/SKILL.md) | Turn an idea or draft into reviewed scope, behavioral requirements, and an acceptance contract. |
+| Requirement Validation | [analyze-architecture](./skills/analyze-architecture/SKILL.md) | Evaluate requirements against the existing system: feasibility, design alternatives, gaps, invariants, compatibility, risks, and dependencies. |
+| Planning | [plan-delivery](./skills/plan-delivery/SKILL.md) | Build a dependency-ordered tracker with measurable completion criteria, blockers, and next-ready work. |
+| Planning | [design-test-catalog](./skills/design-test-catalog/SKILL.md) | Connect requirements to scenarios, tests, fixtures, environments, and reproducible verification commands. |
+| Development | [implement-tested-slice](./skills/implement-tested-slice/SKILL.md) | Implement eligible work in small red-green-refactor slices with real test and coverage evidence. |
+| Validation | [integrate-and-report](./skills/integrate-and-report/SKILL.md) | Verify integration under project policy and report honest status, post-integration results, and next eligible work. |
+| Aceptance | [qualify-release](./skills/qualify-release/SKILL.md) | Execute an acceptance runbook against installed deliverables and claimed environments, recording release and compatibility evidence. |
 | Across releases | [evolve-project-phase](./skills/evolve-project-phase/SKILL.md) | Prepare the next phase against the accepted baseline, preserving history and making compatibility changes explicit. |
 | Throughout | [maintain-project-docs](./skills/maintain-project-docs/SKILL.md) | Keep contracts, decisions, guides, trackers, catalogs, README claims, and evidence consistent as work changes. |
 
