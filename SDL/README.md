@@ -45,7 +45,7 @@ Check your harness's current documentation for its supported locations. Common c
 
 These are alternatives, not directories you need to create together. The nested `SDL/skills/` source location is not necessarily discovered automatically.
 
-For example, **if your harness supports `.agents/skills/`**, first inspect the destination for same-name files or skill directories. If there are no conflicts, run the following from the target project's root to copy all 14 skills:
+For example, **if your harness supports `.agents/skills/`**, first inspect the destination for same-name files or skill directories. If there are no conflicts, run the following from the target project's root to copy all 15 skills:
 
 ```sh
 mkdir -p .agents/skills
@@ -104,6 +104,7 @@ If another skill is needed but unavailable, load its entry point explicitly or p
 | Requirement Validation | [analyze-architecture](./skills/analyze-architecture/SKILL.md) | Evaluate requirements against the existing system: feasibility, design alternatives, gaps, invariants, compatibility, risks, and dependencies. |
 | Planning | [plan-delivery](./skills/plan-delivery/SKILL.md) | Build a dependency-ordered tracker with measurable completion criteria, blockers, and next-ready work. |
 | Planning | [design-test-catalog](./skills/design-test-catalog/SKILL.md) | Connect requirements to scenarios, tests, fixtures, environments, and reproducible verification commands. |
+| Optional coordination | [track-github-delivery](./skills/track-github-delivery/SKILL.md) | Mirror the local plan in GitHub Issues, coordinate agent ownership, and integrate task branches through reviewed PRs. |
 | Development | [implement-tested-slice](./skills/implement-tested-slice/SKILL.md) | Implement eligible work in small red-green-refactor slices with real test and coverage evidence. |
 | Validation | [integrate-and-report](./skills/integrate-and-report/SKILL.md) | Verify integration under project policy and report honest status, post-integration results, and next eligible work. |
 | Aceptance | [qualify-release](./skills/qualify-release/SKILL.md) | Execute an acceptance runbook against installed deliverables and claimed environments, recording release and compatibility evidence. |
@@ -192,6 +193,26 @@ Strict controls are recommended for production work, but the engineer must confi
 `establish-coding-standards` asks for the team's internal repository policy. Its recommended default is a dedicated branch per plan task and a completion commit after each task's implementation and pre-integration validation, including related tests, documentation, and evidence, before starting the next task. Intermediate commits are allowed; this does not mandate exactly one commit per task.
 
 The user can choose another cadence, branching model, or review/merge strategy. Record the agreed practice and operation permissions in the coding guide. A task commit alone does not mean DONE: required review, integration, and post-integration validation must still pass.
+
+## Optional GitHub tracking and multi-agent coordination
+
+During standards intake or planning, ask which ticketing system the team uses. Recommend GitHub Issues for GitHub-hosted projects, but retain an existing system or local-only workflow when selected. The [GitHub delivery tracking skill](./skills/track-github-delivery/SKILL.md) requires confirmation of the repository, integration branch, permissions, and status/ownership policy before remote changes.
+
+The local plan retains scope, dependencies, acceptance criteria, and test traceability. Each task links to its canonical GitHub issue and records its session owner/claim, branch, PR, status, and last synchronization time. GitHub is the shared authority for live claims, blockers, and execution status when enabled; stale local files must not overwrite remote ownership.
+
+Before starting or resuming work, agents safely refresh remote repository state, inspect relevant commits and linked PRs, and reread current issues and dependencies. Only unblocked, dependency-ready, unclaimed work can start. Separate task branches and isolated worktrees/clones protect concurrent changes.
+
+GitHub assignees, labels, and check-then-edit operations are not atomic locks. For multiple agents, one agreed human or designated agent session serializes claim grants in issue comments; workers request a claim and wait for an explicit grant before coding. Shared GitHub accounts still need distinct agent/session IDs. Unclear or competing claims require pausing for resolution, not silent takeover. Without a serialized grant mechanism, concurrent task starts remain blocked.
+
+Implementation goes through a linked PR into the agreed integration branch, normally `main`, under required review, CI, branch protections, and merge authorization. Keep tasks non-DONE until integration and required post-integration checks pass; do not auto-close them merely at merge. Synchronize final evidence locally and remotely, publishing post-merge tracker changes through a follow-up PR when needed and exposing any pending synchronization.
+
+```text
+Use track-github-delivery to propose GitHub Issues tracking for our approved
+local plan. Confirm the repository, main branch, permissions, status mapping,
+and one claim coordinator before creating issues or assigning work.
+Keep local task IDs and issue links aligned, and require PR-based integration.
+Do not implement tasks until their ownership grants are confirmed.
+```
 
 ## Adaptation and guardrails
 

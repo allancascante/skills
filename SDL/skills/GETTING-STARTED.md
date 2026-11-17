@@ -94,6 +94,23 @@ This is a sequence of interactive steps, not authorization to skip questions or 
 
 Review these artifacts before authorizing implementation. Documented standards do not mean enforcement tools have been installed or checks have run.
 
+### Optional: test GitHub tracking with multiple agents
+
+Keep the demo local-only unless you explicitly want remote tracking. For a shared trial, provide an approved disposable GitHub repository and send:
+
+```text
+Read /path/to/skills/SDL/skills/track-github-delivery/SKILL.md.
+Ask which ticketing system to use and recommend GitHub Issues.
+If I select GitHub, confirm the repository, integration branch, operation
+permissions, status mapping, and one serialized claim coordinator.
+Keep the local plan and link its tasks to canonical issues.
+Stop for approval before publishing issues or changing GitHub state.
+```
+
+After setup and authorization, have two agent sessions request the same ready task. Neither should code on a request alone: the coordinator grants only one claim, and the other waits or requests a different eligible task. Give the sessions separate worktrees/clones and unique session IDs even if they share a GitHub account. Also try a blocked task, a stale local TODO for an already claimed task, and a resumed session: each must refresh shared status and respect the current grant. A failed remote read/write must be reported rather than silently reverting to local-only coordination.
+
+For the winner's implementation, expect linked issue/local progress, a PR into the agreed integration branch, required review and checks, and no DONE/issue closure until post-integration gates pass. Pending final tracker publication must remain explicit. This is a manual coordination smoke test, not proof that ordinary issue assignment is an atomic lock. See the [coordination guide](../README.md#optional-github-tracking-and-multi-agent-coordination).
+
 ## 4. Watch one test-driven implementation cycle
 
 Once you approve the relevant artifacts, send:

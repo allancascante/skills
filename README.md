@@ -8,7 +8,7 @@ Reusable instructions for AI coding agents to clarify requirements, document dec
 
 - **Try the process:** follow the [getting-started walkthrough](./SDL/skills/GETTING-STARTED.md) in a disposable project, with copyable prompts and expected outcomes.
 - **Install and use the skills:** read the [SDL usage guide](./SDL/README.md#use-in-any-project) for harness compatibility, installation, and invocation.
-- **Explore the collection:** see the [14 skills and their purposes](./SDL/README.md#workflow-and-skill-catalog), followed by detailed workflow guidance.
+- **Explore the collection:** see the [15 skills and their purposes](./SDL/README.md#workflow-and-skill-catalog), followed by detailed workflow guidance.
 
 The current collection is **SDL: software delivery skills**. Each skill is a directory containing a `SKILL.md` entry point and any supporting templates or references. These are instructions, not an executable application or a harness-specific plugin; available tools and automatic discovery depend on your harness.
 

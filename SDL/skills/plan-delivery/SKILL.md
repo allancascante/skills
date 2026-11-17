@@ -12,16 +12,19 @@ Convert the contract and architecture into tasks whose completion is based on ev
 Before writing, resolve roadmap and tracker paths through the agreed documentation map or existing project links. If locations are not agreed, ask whether to retain the current layout, use `docs/IMPLEMENTATION.md` and `docs/IMPLEMENTATION-TASKS.md`, or choose custom paths; use `organize-project-docs` if available. Reuse confirmed paths and apply `maintain-project-docs` to affected authorities and cross-links.
 
 1. Inspect the approved contract, design, current baseline, existing tracker, tests, and repository state. Establish which artifacts are authoritative and what approval is needed before work or integration.
+   Ask which ticketing system to use, reusing an existing confirmed choice. Recommend GitHub Issues for GitHub-hosted projects, but allow another system or local-only tracking. If GitHub is chosen, use `track-github-delivery` to confirm permissions, status authority, issue mapping, PR integration policy, and a serialized claim coordinator for multiple agents before publishing tasks. Keep the local plan; selecting remote tracking is not authorization to create issues or push.
 2. Decompose work into cohesive tasks with stable IDs. Record production surfaces, requirement IDs, dependencies, explicit exclusions, acceptance criteria, risk, and required validation layers. Preserve atomic cross-cutting invariants: do not activate an incompatible partial feature merely to make a task smaller.
 3. Order tasks by actual dependencies, not document order. Identify independently parallelizable work only when ownership and file or state boundaries do not conflict. Plan incremental vertical or behavioral slices within each task.
 4. Collaborate with `design-test-catalog` to map tasks to concrete scenario IDs and test selectors, including negative paths, compatibility, and regression cases. Set explicit project-approved quality and coverage gates; do not assume a universal threshold.
 5. Track each task as TODO, DOING, BLOCKED, PARTIAL, or DONE, or use the project's equivalent. Record owners, blockers, decisions, validation commands/results, versions, evidence locations, and integration status. Ready to integrate is not DONE if integration or required post-integration validation is outstanding.
 6. Select the next task whose prerequisites and approvals are satisfied. If no task is ready, report the dependency or decision blocking progress. Do not conceal failed checks or invent a passing result.
+   When remote tracking is enabled, refresh the shared issues, ownership, PRs, and repository baseline before selection. Exclude blocked, claimed, and review/integration-pending work. Use the approved claim protocol before implementation; a stale local TODO or local commit does not reserve a task.
 7. Update the tracker as work progresses. An owner-approved scope change must update the contract, affected tasks, tests, and claims; an unresolved failure remains visible.
 
 ## Task record
 
 - ID and title; status and owner
+- When remote tracking is enabled: canonical issue URL, agent/session and claim reference, branch/PR, last synchronization time, and pending sync actions
 - Requirements, production surfaces, dependencies, and explicit exclusions
 - Slices and atomicity constraints
 - Scenario IDs, test selectors, environments, and acceptance/quality gates
